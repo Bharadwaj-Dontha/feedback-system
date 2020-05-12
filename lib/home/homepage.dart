@@ -149,10 +149,10 @@ class _HomePageState extends State<HomePage> {
   userContent() {
     return StreamBuilder(
       stream: Firestore.instance
-          .collection('/feedbacks')
-          .where('host_id', isEqualTo: email)
-          .where('status', isEqualTo: "open")
-          .snapshots(),
+        .collection('/feedbacks')
+        .where('host_id', isEqualTo: email)
+        .where('status', isEqualTo: "open")
+        .snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           if (snapshot.data.documents.length == 0) {

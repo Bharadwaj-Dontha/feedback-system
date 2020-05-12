@@ -89,6 +89,7 @@ class _ScannerState extends State<Scanner> {
                       var snapshot = await Firestore.instance
                           .collection('/feedbacks')
                           .where('id', isEqualTo: int.parse(feedbackId))
+                          .where('status', isEqualTo: 'open')
                           .getDocuments();
 
                       if (snapshot.documents.length > 0) {

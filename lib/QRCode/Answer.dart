@@ -21,7 +21,7 @@ class Answer extends StatefulWidget {
 class _AnswerState extends State<Answer> {
   var data;
   double avg = 0;
-  bool attended;
+  var attended;
   bool perform = false;
   String email;
   var updated;
@@ -182,7 +182,10 @@ class _AnswerState extends State<Answer> {
         .get()
         .then((doc) {
       var prev = doc['scores'];
+      attended = doc['attended'];
+      attended.add(email);
       print(prev);
+      print(questionObjectList.length);
       for (int i = 0; i < questionObjectList.length; i++) {
         int response = questionObjectList[i].response;
         prev[i.toString()][response - 1] += 1;
@@ -199,6 +202,7 @@ class _AnswerState extends State<Answer> {
       }
       avg = avg / questionObjectList.length;
       updated = prev;
+      print(updated);
     });
   }
 
@@ -206,10 +210,10 @@ class _AnswerState extends State<Answer> {
     var ref = Firestore.instance.collection('/feedbacks').document(widget.data);
     Firestore.instance.runTransaction((tx) async {
       await updateScores();
-      await tx.update(ref, {
+      await tx.set(ref, {
         'scores': updated,
-        'attended': FieldValue.arrayUnion([email]),
-        'average': FieldValue.arrayUnion([avg]),
+        'attended': attended,
+//        'average': FieldValue.arrayUnion([avg]),
       });
     }).then((val) {
       // print("updated");
