@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:feedback_system/Feedback modification/edit_feedback.dart';
 import 'package:feedback_system/QRCode/scanner.dart';
@@ -107,6 +108,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: Colors.redAccent,
       appBar: AppBar(
         title: Text('Home'),
         centerTitle: true,

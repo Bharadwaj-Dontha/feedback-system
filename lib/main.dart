@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // theme: ThemeData.dark().copyWith(backgroundColor: Colors.black12),
+      theme: ThemeData.dark().copyWith(),
+      //theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: SplashScreen.navigate(
         name: 'assets/SplashScreen.flr',
@@ -34,11 +35,11 @@ class MyApp extends StatelessWidget {
         //isLoading: false,
         startAnimation: 'Login Page',
         fit: BoxFit.cover,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFF272727),
       ),
       routes: <String, WidgetBuilder>{
         '/allFeedbacks': (BuildContext context) => new AllFeedbacks(),
-        '/addManager':(BuildContext context) => new AddManager(),
+        '/addManager': (BuildContext context) => new AddManager(),
         '/signup': (BuildContext context) => new SignUp(),
         '/nameFeedback': (BuildContext context) => new NamingFeedback(),
         '/landingpage': (BuildContext context) => new LoginPage(),

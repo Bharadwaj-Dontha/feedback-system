@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
             'Login',
             style: TextStyle(color: Colors.white),
           ),
-          color: Colors.blue,
+          //color: Colors.blue,
           onPressed: validateAndSubmit,
         ),
       ),
@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
             'Register',
             style: TextStyle(color: Colors.white),
           ),
-          color: Colors.blue,
+          //color: Colors.blue,
           onPressed: () {
             Navigator.pushNamed(context, '/signup');
           },
