@@ -210,7 +210,7 @@ class _AnswerState extends State<Answer> {
     var ref = Firestore.instance.collection('/feedbacks').document(widget.data);
     Firestore.instance.runTransaction((tx) async {
       await updateScores();
-      await tx.set(ref, {
+      await tx.update(ref, {
         'scores': updated,
         'attended': attended,
 //        'average': FieldValue.arrayUnion([avg]),
