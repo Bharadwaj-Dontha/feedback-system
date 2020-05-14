@@ -201,6 +201,7 @@ class _AnswerState extends State<Answer> {
     }).then((val) async {
       await ref.get().then((doc) {
         if (!(doc['attended'].contains(email))) {
+          print(email);
           throw Exception('Error');
         }
       }).catchError((e) {
@@ -213,8 +214,7 @@ class _AnswerState extends State<Answer> {
     }).catchError((e) {
       pr.hide();
       print(e);
-      Fluttertoast.showToast(
-          msg: 'Error submitting the feedback. Try again later');
+      uploadFeedback(context);
     });
   }
 }
