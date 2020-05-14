@@ -1,4 +1,3 @@
-import 'package:feedback_system/Feedback%20creation/namingFeedback.dart';
 import 'package:feedback_system/Previous%20feedbacks/closedFeedbacks.dart';
 import 'package:feedback_system/User%20Management/AddManager.dart';
 import 'package:feedback_system/authentication/signup.dart';
@@ -12,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Feedback creation/createFeedback.dart';
+import 'Feedback creation/namingFeedback.dart';
 import 'authentication/loginpage.dart';
 import 'home/homepage.dart';
 
@@ -25,8 +25,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(),
-      //theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: SplashScreen.navigate(
         name: 'assets/SplashScreen.flr',
